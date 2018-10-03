@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ApiReqres"
+             x:Class="ApiReqres.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            
+            <ListView x:Name="listApi">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Avatar}" MinimumHeightRequest="50"></Image>
+                                    <Label Text="{Binding Id}"></Label>
+                                    <Label Text="{Binding FirstName}"></Label>
+                                    <Label Text="{Binding LastName}"></Label>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal"  Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
+                <Button x:Name="ButtonBack" Text="Назад" IsEnabled="False" Clicked="ClickBack"></Button>
+                <Button x:Name="ButtonAhead" Text="Далее" Clicked="ClickAhead"></Button>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Grid.Row="2" HorizontalOptions="Center" Padding="0,0,0,20">
+                <Label Text="Статус: "></Label>
+                <Label x:Name="State" Text="Выполнено"></Label>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
